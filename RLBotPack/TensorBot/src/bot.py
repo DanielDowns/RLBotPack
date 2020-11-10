@@ -41,7 +41,7 @@ class MyBot(BaseAgent):
             self.isKickoff = True  
     
         #kickoff
-        if(self.isKickoff == True and packet.game_info.is_round_active == True):        
+        if((self.isKickoff == True and packet.game_info.is_round_active == True) or packet.game_ball.latest_touch.time_seconds == 0):       
             self.controller_state.throttle = 1
             self.controller_state.boost = True
             
